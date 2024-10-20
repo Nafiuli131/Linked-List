@@ -2,51 +2,71 @@ public class LinkedList {
 
     ListNode head;
 
-    void addNode(int value){
+    void addNode(int value) {
         ListNode node = new ListNode(value);
-        if(head==null){
-            head=node;
-        }else {
+        if (head == null) {
+            head = node;
+        } else {
             ListNode temp = head;
-            while (temp.next!=null){
-                temp=temp.next;
+            while (temp.next != null) {
+                temp = temp.next;
             }
-            temp.next=node;
+            temp.next = node;
         }
     }
 
-    void displayNode(){
+    void displayNode() {
         System.out.println("Show linked list -> ");
         ListNode temp = head;
-        if(temp==null){
+        if (temp == null) {
             System.out.println("Linked list is empty");
-        }else{
-            while (temp!=null){
-                System.out.print(temp.val+" ");
-                temp=temp.next;
+        } else {
+            while (temp != null) {
+                System.out.print(temp.val + " ");
+                temp = temp.next;
             }
         }
         System.out.println();
     }
 
-    void findMiddleAndLastElement(){
+    void findMiddleAndLastElement() {
         System.out.println("Middle element -> ");
         if (head == null) {
             System.out.println("List is empty");
         }
         ListNode fast = head;
         ListNode slow = head;
-        while (fast!=null && fast.next!=null){
-            slow=slow.next;
-            fast=fast.next.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
         System.out.println(slow.val);
         System.out.println("Last element is -> ");
         ListNode end = head;
-        while (end.next!=null){
-            end=end.next;
+        while (end.next != null) {
+            end = end.next;
         }
         System.out.println(end.val);
+    }
+
+    void remove(int value) {
+        if (head == null) {
+            System.out.println("Linked list is empty");
+        }
+        if (head.val == value) {
+            head = head.next;
+            return;
+        } else {
+            ListNode temp = head;
+            while (temp.next != null) {
+                if (temp.next.val == value) {
+                    temp.next = temp.next.next;
+                    return;
+                }
+                temp = temp.next;
+            }
+            System.out.println("Deleted value is not found ");
+        }
     }
 
 }
