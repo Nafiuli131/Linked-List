@@ -1,5 +1,10 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+         LinkedList linkedList = new LinkedList();
+         linkedList.addNode(1);
+         linkedList.addNode(2);
+         linkedList.addNode(3);
+         linkedList.displayNode();
+         linkedList.findMiddleAndLastElement();
     }
 }
